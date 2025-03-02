@@ -2,10 +2,10 @@ import os
 from PIL import Image
 
 # Đường dẫn đến thư mục chứa ảnh thô
-raw_dir = '../raw/'  # Thay đổi đường dẫn để trỏ đến thư mục raw
-cleaned_dir = '.'  # Thư mục hiện tại (cleaned) nơi lưu tệp mã nguồn
+raw_dir = '../raw/'
+cleaned_dir = '.'
 
-# Định nghĩa các thông số hợp lệ cho ảnh
+# Các thông số hợp lệ cho ảnh
 valid_formats = ['JPEG', 'JPG', 'PNG']  # Các định dạng hợp lệ
 min_size = (100, 100)  # Kích thước tối thiểu (width, height)
 
@@ -21,7 +21,7 @@ def is_valid_image(image):
 
 # Đọc và xử lý từng ảnh trong thư mục raw
 for filename in os.listdir(raw_dir):
-    if filename.lower().endswith(('.jpg', '.jpeg', '.png')):  # Kiểm tra định dạng file
+    if filename.lower().endswith(('.jpg', '.jpeg', '.png')):
         file_path = os.path.join(raw_dir, filename)
         try:
             with Image.open(file_path) as img:
@@ -29,6 +29,10 @@ for filename in os.listdir(raw_dir):
                     # Lưu ảnh hợp lệ vào thư mục cleaned
                     img.save(os.path.join(cleaned_dir, filename))
                     print(f"Đã lưu ảnh hợp lệ: {filename}")
+                    confirm = input("Bạn có muốn xóa ảnh này không? (y/n): ")
+                    if confirm.lower() == "y":
+                        os.remove(file_path)  # Xóa ảnh không hợp lệ
+                        print("Đã xóa ảnh không hợp lệ.")
                 else:
                     print(f"Ảnh không hợp lệ: {filename}")
         except Exception as e:
