@@ -1,0 +1,6 @@
+{
+    "api_url": "http://127.0.0.1:8000/predict",
+    "class_images_dir": "D:\\Python1\\gui\\assets\\class_images",
+    "database_path": "D:\\Python1\\database\\history.db",
+    "last_image_dir": "C:\\Users\\suvie\\Downloads\\pictures-20250424T072456Z-001\\Biển báo"
+}

@@ -1,0 +1,30 @@
+# Môi trường ảo
+venv/
+/venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+
+# Dữ liệu lớn (nếu không muốn đưa lên Git)
+data/raw/
+data/cleaned/
+data/augmented/
+data/processed/*.npy
+models/*.h5 # Hoặc định dạng file model khác
+database/*.db
+
+# Logs
+logs/*.log
+logs/*.txt
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
